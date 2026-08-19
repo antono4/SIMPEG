@@ -1,41 +1,17 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="<?php echo base_url(); ?>asset/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>asset/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>asset/css/docs.css" rel="stylesheet">
-	<style>
-		body{
-			margin:20px;
-			}
-	</style>
-	
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/application.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/bootstrap-tooltip.js"></script>
-  </head>
-
-  <body>
-	<div class="well">
+<?php $this->load->view('dashboard_admin/layout/iframe_header'); ?>
+<div class="card"><div class="card-body">
 	<?php if(validation_errors()) { ?>
-	<div class="alert alert-block">
-	  <button type="button" class="close" data-dismiss="alert">×</button>
+	<div class="alert alert-danger alert-dismissible fade show">
+	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	  	<h4>Terjadi Kesalahan!</h4>
 		<?php echo validation_errors(); ?>
 	</div>
 	<?php } ?>
-		<?php echo form_open('data_keluarga/simpan','class="form-horizontal"'); ?>
-		  <div class="control-group">
+		<?php echo form_open('data_keluarga/simpan',''); ?>
+		  <div class="mb-3">
 		  	<legend>Data Riwayat Pangkat - <?php echo $this->session->userdata("nama_pegawai"); ?></legend>
-			<label class="control-label" for="golongan">Golongan</label>
-			<div class="controls">
+			<label class="form-label fw-semibold" for="golongan">Golongan</label>
+			<div>
 			  <select name="id_golongan">
 			  	<?php
 			  		foreach($golongan->result_array() as $g)
@@ -58,66 +34,66 @@
 			</div>
 		  </div>
 		  
-		  <div class="control-group">
-			<label class="control-label" for="nomor_sk">Nomor SK</label>
-			<div class="controls">
-			  <input type="text" class="span6" name="nomor_sk" id="nomor_sk" value="<?php echo $nomor_sk; ?>" 
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="nomor_sk">Nomor SK</label>
+			<div>
+			  <input type="text" class="form-control" name="nomor_sk" id="nomor_sk" value="<?php echo $nomor_sk; ?>" 
 			  placeholder="Nomor SK">
 			</div>
 		  </div>
 		  
-		  <div class="control-group">
-			<label class="control-label" for="tanggal_sk">Tanggal SK</label>
-			<div class="controls">
-			  <input type="text" class="span6" name="tanggal_sk" id="tanggal_sk" value="<?php echo $tanggal_sk; ?>" 
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="tanggal_sk">Tanggal SK</label>
+			<div>
+			  <input type="text" class="form-control" name="tanggal_sk" id="tanggal_sk" value="<?php echo $tanggal_sk; ?>" 
 			  placeholder="Tanggal SK">
 			</div>
 		  </div>
 		  
-		  <div class="control-group">
-			<label class="control-label" for="dasar_perubahan">Dasar Perubahan</label>
-			<div class="controls">
-			  <input type="text" class="span6" name="dasar_perubahan" id="dasar_perubahan" value="<?php echo $dasar_perubahan; ?>" 
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="dasar_perubahan">Dasar Perubahan</label>
+			<div>
+			  <input type="text" class="form-control" name="dasar_perubahan" id="dasar_perubahan" value="<?php echo $dasar_perubahan; ?>" 
 			  placeholder="Dasar Perubahan">
 			</div>
 		  </div>
 		  
-		  <div class="control-group">
-			<label class="control-label" for="gaji_pokok">Gaji Pokok</label>
-			<div class="controls">
-			  <input type="text" class="span6" name="gaji_pokok" id="gaji_pokok" value="<?php echo $gaji_pokok; ?>" 
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="gaji_pokok">Gaji Pokok</label>
+			<div>
+			  <input type="text" class="form-control" name="gaji_pokok" id="gaji_pokok" value="<?php echo $gaji_pokok; ?>" 
 			  placeholder="Gaji Pokok">
 			</div>
 		  </div>
 		  
-		  <div class="control-group">
-			<label class="control-label" for="tanggal_mulai">Tanggal Mulai</label>
-			<div class="controls">
-			  <input type="text" class="span6" name="tanggal_mulai" id="tanggal_mulai" value="<?php echo $tanggal_mulai; ?>" 
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="tanggal_mulai">Tanggal Mulai</label>
+			<div>
+			  <input type="text" class="form-control" name="tanggal_mulai" id="tanggal_mulai" value="<?php echo $tanggal_mulai; ?>" 
 			  placeholder="Tanggal Mulai">
 			</div>
 		  </div>
 		  
-		  <div class="control-group">
-			<label class="control-label" for="tanggal_selesai">Tanggal Selesai</label>
-			<div class="controls">
-			  <input type="text" class="span6" name="tanggal_selesai" id="tanggal_selesai" value="<?php echo $tanggal_selesai; ?>" 
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="tanggal_selesai">Tanggal Selesai</label>
+			<div>
+			  <input type="text" class="form-control" name="tanggal_selesai" id="tanggal_selesai" value="<?php echo $tanggal_selesai; ?>" 
 			  placeholder="Tanggal Selesai">
 			</div>
 		  </div>
 		  
-		  <div class="control-group">
-			<label class="control-label" for="masa_kerja">Masa Kerja</label>
-			<div class="controls">
-			  <input type="text" class="span6" name="masa_kerja" id="masa_kerja" value="<?php echo $masa_kerja; ?>" 
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="masa_kerja">Masa Kerja</label>
+			<div>
+			  <input type="text" class="form-control" name="masa_kerja" id="masa_kerja" value="<?php echo $masa_kerja; ?>" 
 			  placeholder="Masa Kerja">
 			</div>
 		  </div>
 		  
-		  <div class="control-group">
-			<label class="control-label" for="pejabat_menetapkan">Pejabat Menetapkan</label>
-			<div class="controls">
-			  <input type="text" class="span6" name="pejabat_menetapkan" id="pejabat_menetapkan" value="<?php echo $pejabat_menetapkan; ?>" 
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="pejabat_menetapkan">Pejabat Menetapkan</label>
+			<div>
+			  <input type="text" class="form-control" name="pejabat_menetapkan" id="pejabat_menetapkan" value="<?php echo $pejabat_menetapkan; ?>" 
 			  placeholder="Pejabat Menetapkan">
 			</div>
 		  </div>
@@ -126,7 +102,5 @@
 		  <input type="hidden" name="id_pegawai" value="<?php echo $id_pegawai; ?>">
 		  <input type="hidden" name="st" value="<?php echo $st; ?>">
 		<?php echo form_close(); ?>
-	</div>    
-	
-  </body>
-</html>
+	</div></div>
+<?php $this->load->view('dashboard_admin/layout/iframe_footer'); ?>

@@ -1,123 +1,18 @@
+<?php $this->load->view('dashboard_admin/layout/main_header', array('page_title' => 'Laporan Pegawai - Status & Golongan', 'active_menu' => 'laporan')); ?>
+<div class="callout callout-info"><h5><?php echo $judul_lengkap.' '.$instansi; ?></h5><p class="mb-0"><?php echo $alamat; ?></p></div>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title><?php echo $judul_lengkap.' - '.$instansi; ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="<?php echo base_url(); ?>asset/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>asset/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>asset/css/docs.css" rel="stylesheet">
-	
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/application.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/bootstrap-tooltip.js"></script>
-	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/colorbox/colorbox.css" />
-	<script src="<?php echo base_url(); ?>asset/colorbox/jquery.colorbox.js"></script>
-	<script>
-		  $(document).ready(function(){
-			  //Examples of how to assign the ColorBox event to elements
-			  $(".medium-box").colorbox({rel:'group', iframe:true, width:"90%", height:"90%"});
-	
-		  });
-	</script>
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="<?php echo base_url(); ?>"><?php echo $judul_pendek; ?></a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="<?php echo base_url(); ?>"><i class="icon-home icon-white"></i> Beranda</a></li>
-			  <li class="dropdown">
-			  	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book icon-white"></i> Master <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url(); ?>master_status_pegawai"><i class="icon-tag"></i> Status Pegawai</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_unit_kerja"><i class="icon-question-sign"></i> Unit Kerja</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_satuan_kerja"><i class="icon-ok-sign"></i> Satuan Kerja</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_ppk"><i class="icon-eye-open"></i> PPK</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_golongan"><i class="icon-random"></i> Golongan</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_eselon"><i class="icon-retweet"></i> Eselon</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_pelatihan"><i class="icon-folder-open"></i> Pelatihan</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_jabatan"><i class="icon-hdd"></i> Jabatan</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_status_jabatan"><i class="icon-tasks"></i> Status Jabatan</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_penghargaan"><i class="icon-filter"></i> Penghargaan</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_hukuman"><i class="icon-briefcase"></i> Hukuman</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_lokasi_pelatihan"><i class="icon-fullscreen"></i> Lokasi Pelatihan</a></li>
-                  <li><a href="<?php echo base_url(); ?>master_lokasi_kerja"><i class="icon-briefcase"></i> Lokasi Kerja</a></li>
-                </ul>
-              </li>
-			  <li class="dropdown">
-			  	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-comment icon-white"></i> Panduan <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url(); ?>panduan_administrator"><i class="icon-fire"></i> Administrator</a></li>
-                  <li><a href="<?php echo base_url(); ?>panduan_operator"><i class="icon-asterisk"></i> Operator</a></li>
-                  <li><a href="<?php echo base_url(); ?>panduan_executive"><i class="icon-leaf"></i> Executive</a></li>
-                </ul>
-              </li>
-			  <li class="dropdown">
-			  	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-tasks icon-white"></i> Laporan <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="<?php echo base_url(); ?>laporan_pegawai_unit_satuan"><i class="icon-tag"></i> Laporan Pegawai - Unit Kerja dan Satuan Kerja</a></li>
-                  <li><a href="<?php echo base_url(); ?>laporan_pegawai_penempatan_kerja"><i class="icon-question-sign"></i> Laporan Pegawai - Penempatan Kerja</a></li>
-                  <li><a href="<?php echo base_url(); ?>laporan_pegawai_ikut_pelatihan"><i class="icon-ok-sign"></i> Laporan Pegawai - Mengikuti Pelatihan</a></li>
-                  <li><a href="<?php echo base_url(); ?>laporan_pegawai_status_golongan"><i class="icon-eye-open"></i> Laporan Pegawai - Status Pegawai dan Golongan</a></li>
-                  <li><a href="<?php echo base_url(); ?>laporan_pegawai_struktural_fungsional"><i class="icon-random"></i> Laporan Pegawai - Struktural dan Fungsional</a></li>
-                  <li><a href="<?php echo base_url(); ?>laporan_pegawai_urut_kepangkatan"><i class="icon-retweet"></i> Laporan Daftar Urut Kepangkatan</a></li>
-                </ul>
-              </li>
-            </ul>
-            <div class="btn-group pull-right">
-			  <button class="btn btn-primary"><i class="icon-user icon-white"></i> <?php echo $this->session->userdata('nama'); ?></button>
-			  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-				<span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu">
-				<li><a href="<?php echo base_url(); ?>app/change_password"><i class="icon-wrench"></i> Pengaturan Akun</a></li>
-				<li><a href="<?php echo base_url(); ?>manage_user"><i class="icon-tasks"></i> Manajemen User</a></li>
-				<li><a href="<?php echo base_url(); ?>app/logout"><i class="icon-off"></i> Log Out</a></li>
-			  </ul>
-			</div>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-	
-    <div class="container">
-	
-	<div class="well">
-	  <div class="row">
-		<div class="span">
-		  <h3><?php echo $judul_lengkap.' '.$instansi; ?></h3>
-		  <p><?php echo $alamat; ?></p>
-		</div>
-	  </div>
-	</div>
-
-  <div class="well">
-	<div class="navbar navbar-inverse">
-	  <div class="navbar-inner">
-		<div class="container">
-		  <a class="brand" href="#">Laporan Pegawai - Status & Golongan</a>
-		<div class="span6 pull-right">
+  <div class="card card-body mb-3">
+	<div class="navbar navbar-expand-lg navbar-dark bg-primary toolbar-navbar px-3 py-2"><div class="container-fluid">
+		<div class="d-flex flex-wrap align-items-center gap-3 w-100">
+		  <a class="navbar-brand mb-0 fs-6 fw-bold" href="#">Laporan Pegawai - Status & Golongan</a>
+		<div class="ms-auto d-flex align-items-center gap-2 flex-wrap">
 		<?php
-			echo form_open("laporan_pegawai_status_golongan/set",'class="navbar-form pull-right"')
+			echo form_open("laporan_pegawai_status_golongan/set",'class="d-flex align-items-center gap-2"')
 		?>
-			<div class="span2"><strong>Status Pegawai</strong></div>
-			<div class="span">:</div>
-			<div class="span3">
-			<select class="span3" name="id_status_pegawai">
+			<span class="text-white-50 small text-nowrap">Status Pegawai</span>
+			
+			<div class="col-md-3">
+			<select class="form-select form-select-sm w-auto" name="id_status_pegawai">
 			<option value="">- Status Pegawai -</option>
 			  	<?php
 			  		foreach($mst_status_pegawai->result_array() as $msk)
@@ -139,10 +34,10 @@
 			</select>
 			</div>
 			
-			<div class="span2"><strong>Golongan</strong></div>
-			<div class="span">:</div>
-			<div class="span3">
-			<select class="span3" name="id_golongan">
+			<span class="text-white-50 small text-nowrap">Golongan</span>
+			
+			<div class="col-md-3">
+			<select class="form-select form-select-sm w-auto" name="id_golongan">
 			<option value="">- Golongan -</option>
 			  	<?php
 			  		foreach($mst_golongan->result_array() as $msk)
@@ -164,10 +59,10 @@
 			</select>
 			</div>
 			
-			<div class="span2"><strong>Satuan Kerja</strong></div>
-			<div class="span">:</div>
-			<div class="span3">
-			<select class="span3" name="id_satuan_kerja">
+			<span class="text-white-50 small text-nowrap">Satuan Kerja</span>
+			
+			<div class="col-md-3">
+			<select class="form-select form-select-sm w-auto" name="id_satuan_kerja">
 			<option value="">- Satuan Kerja -</option>
 			<?php
 			if($this->session->userdata('id_satuan_kerja')=="Semua")
@@ -200,18 +95,17 @@
 			  	?>
 			</select>
 		</div>
-		<div class="span4 pull-right">
-  		<a class="btn" href="<?php echo base_url(); ?>laporan_pegawai_status_golongan/export"><i class="icon-ok-circle"></i> Export ke Excell</a>
-		  <button type="submit" class="btn btn-primary"><i class="icon-search icon-white"></i> Cari Data Laporan</button>
+		<div class="span4 float-end">
+  		<a class="btn btn-secondary" href="<?php echo base_url(); ?>laporan_pegawai_status_golongan/export"><i class="bi bi-check-circle"></i> Export ke Excell</a>
+		  <button type="submit" class="btn btn-primary text-nowrap"><i class="bi bi-search "></i> Cari Data Laporan</button>
 		</div>
 		<?php echo form_close(); ?>
 		</div>
 		</div>
-	  </div><!-- /navbar-inner -->
-	</div><!-- /navbar -->
+	  </div></div>
 	
 	  <section>
-  <table class="table table-hover table-condensed">
+  <table class="table table-hover table-sm align-middle">
     <thead>
       <tr>
         <th>No.</th>
@@ -249,13 +143,4 @@
 
 </section>
   </div>
-
-
-      <footer class="well">
-        <p><?php echo $credit; ?></p>
-      </footer>
-
-    </div> <!-- /container -->
-
-  </body>
-</html>
+<?php $this->load->view('dashboard_admin/layout/main_footer'); ?>

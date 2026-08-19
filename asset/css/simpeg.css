@@ -1,0 +1,46 @@
+/* SIMPEG custom styles on top of AdminLTE 4 / Bootstrap 5 */
+
+legend {
+  float: left;
+  width: 100%;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+/* CodeIgniter pagination output */
+.simpeg-pagination {
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+.simpeg-pagination a,
+.simpeg-pagination strong {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.375rem;
+  text-decoration: none;
+  color: var(--bs-primary);
+  background-color: var(--bs-body-bg);
+  font-size: 0.875rem;
+}
+.simpeg-pagination a:hover {
+  background-color: var(--bs-tertiary-bg);
+}
+.simpeg-pagination strong {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+}
+
+/* Toolbar inside cards */
+.toolbar-navbar {
+  border-radius: var(--bs-border-radius) var(--bs-border-radius) 0 0;
+}
+
+.table > tbody > tr > td,
+.table > thead > tr > th {
+  vertical-align: middle;
+}

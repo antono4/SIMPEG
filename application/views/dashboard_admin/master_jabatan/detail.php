@@ -1,45 +1,19 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="<?php echo base_url(); ?>asset/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>asset/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>asset/css/docs.css" rel="stylesheet">
-	<style>
-		body{
-			margin:20px;
-			}
-	</style>
-	
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/application.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/bootstrap-tooltip.js"></script>
-  </head>
-
-  <body>
-	<div class="well">
-		<?php echo form_open('master_ppk/simpan','class="form-horizontal"'); ?>
-		  <div class="control-group">
+<?php $this->load->view('dashboard_admin/layout/iframe_header'); ?>
+<div class="card"><div class="card-body">
+		<?php echo form_open('master_ppk/simpan',''); ?>
+		  <div class="mb-3">
 		  	<legend>Master Jabatan</legend>
-			<label class="control-label" for="nama_jabatan">Nama Jabatan</label>
-			<div class="controls">
-			  <input type="text" class="span" name="nama_jabatan" id="nama_jabatan" value="<?php echo $nama_jabatan; ?>" placeholder="Nama Jabatan" disabled>
+			<label class="form-label fw-semibold" for="nama_jabatan">Nama Jabatan</label>
+			<div>
+			  <input type="text" class="form-control" name="nama_jabatan" id="nama_jabatan" value="<?php echo $nama_jabatan; ?>" placeholder="Nama Jabatan" disabled>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="level">Level</label>
-			<div class="controls">
-			  <input type="text" class="span" name="level" id="level" value="<?php echo $level; ?>" placeholder="Level" disabled>
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="level">Level</label>
+			<div>
+			  <input type="text" class="form-control" name="level" id="level" value="<?php echo $level; ?>" placeholder="Level" disabled>
 			</div>
 		  </div>
 		<?php echo form_close(); ?>
-	</div>    
-	
-  </body>
-</html>
+	</div></div>
+<?php $this->load->view('dashboard_admin/layout/iframe_footer'); ?>

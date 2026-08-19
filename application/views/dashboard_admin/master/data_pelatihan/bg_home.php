@@ -1,29 +1,24 @@
-
-
 <section id="data-keluarga">
-  <div class="well">
-	<div class="navbar navbar-inverse">
-	  <div class="navbar-inner">
-		<div class="container">
-		  <a class="brand" href="#">Data Pelatihan</a>
-		  <div class="nav-collapse">
-			<ul class="nav">
-			  <li><a href="<?php echo base_url(); ?>data_pelatihan/tambah/<?php echo $this->session->userdata('kode_pegawai'); ?>" 
-			  class="medium-box"><i class="icon-plus-sign icon-white"></i> Tambah Data Pelatihan</a></li>
+  <div class="card card-body mb-3">
+	<div class="navbar navbar-expand-lg navbar-dark bg-primary toolbar-navbar px-3 py-2"><div class="container-fluid">
+		<div class="d-flex flex-wrap align-items-center gap-3 w-100">
+		  <a class="navbar-brand mb-0 fs-6 fw-bold" href="#">Data Pelatihan</a>
+		  <div class="navbar-nav flex-row">
+			<ul class="navbar-nav gap-2">
+			  <li class="nav-item"><a class="btn btn-light btn-sm iframe-box-lg" href="<?php echo base_url(); ?>data_pelatihan/tambah/<?php echo $this->session->userdata('kode_pegawai'); ?>"><i class="bi bi-plus-circle "></i> Tambah Data Pelatihan</a></li>
 			</ul>
 		  </div>
-			<div class="span6 pull-right">
-				<div class="btn-group pull-right">
-				  <button class="btn btn-primary"><i class="icon-user icon-white"></i> <?php echo $this->session->userdata('nama_pegawai'); ?></button>
-				  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-					<span class="caret"></span>
+			<div class="ms-auto d-flex align-items-center gap-2 flex-wrap">
+				<div class="btn-group float-end">
+				  <button class="btn btn-primary"><i class="bi bi-person "></i> <?php echo $this->session->userdata('nama_pegawai'); ?></button>
+				  <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+					<span class="d-none"></span>
 				  </button>
 				</div>
 			</div>
 		</div>
-	  </div><!-- /navbar-inner -->
-	</div><!-- /navbar -->
-  	<table class="table table-hover table-condensed">
+	  </div></div>
+  	<table class="table table-hover table-sm align-middle">
 	<thead>
       <tr>
         <th>No.</th>
@@ -50,11 +45,11 @@
         <td><?php echo $dpl['negara']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-small medium-box" href="<?php echo base_url(); ?>data_pelatihan/detail/<?php echo $dpl['id_pelatihan']; ?>"><i class="icon-ok-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+	          <a class="btn btn-sm btn-outline-secondary iframe-box-lg" href="<?php echo base_url(); ?>data_pelatihan/detail/<?php echo $dpl['id_pelatihan']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>data_pelatihan/edit/<?php echo $dpl['id_pelatihan']; ?>" class="medium-box"><i class="icon-pencil"></i> Edit Data</a></li>
-	            <li><a href="<?php echo base_url(); ?>data_pelatihan/hapus/<?php echo $dpl['id_pelatihan']; ?>" onClick="return confirm('Anda yakin..???');"><i class="icon-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item iframe-box-lg" href="<?php echo base_url(); ?>data_pelatihan/edit/<?php echo $dpl['id_pelatihan']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_pelatihan/hapus/<?php echo $dpl['id_pelatihan']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -67,13 +62,4 @@
   </table>
   </div>
 </section>
-
-
-      <footer class="well">
-        <p><?php echo $credit; ?></p>
-      </footer>
-
-    </div> <!-- /container -->
-
-  </body>
-</html>
+<?php $this->load->view('dashboard_admin/layout/main_footer'); ?>

@@ -1,66 +1,40 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="<?php echo base_url(); ?>asset/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>asset/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>asset/css/docs.css" rel="stylesheet">
-	<style>
-		body{
-			margin:20px;
-			}
-	</style>
-	
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/application.js"></script>
-    <script src="<?php echo base_url(); ?>asset/js/bootstrap-tooltip.js"></script>
-  </head>
-
-  <body>
-	<div class="well">
+<?php $this->load->view('dashboard_admin/layout/iframe_header'); ?>
+<div class="card"><div class="card-body">
 	<?php if(validation_errors()) { ?>
-	<div class="alert alert-block">
-	  <button type="button" class="close" data-dismiss="alert">×</button>
+	<div class="alert alert-danger alert-dismissible fade show">
+	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	  	<h4>Terjadi Kesalahan!</h4>
 		<?php echo validation_errors(); ?>
 	</div>
 	<?php } ?>
-		<?php echo form_open('master_unit_kerja/simpan','class="form-horizontal"'); ?>
-		  <div class="control-group">
+		<?php echo form_open('master_unit_kerja/simpan',''); ?>
+		  <div class="mb-3">
 		  	<legend>Master Unit Kerja</legend>
-			<label class="control-label" for="nama_unit_kerja">Nama Unit Kerja</label>
-			<div class="controls">
-			  <input type="text" class="span" name="nama_unit_kerja" id="nama_unit_kerja" value="<?php echo $nama_unit_kerja; ?>" placeholder="Nama Unit Kerja">
+			<label class="form-label fw-semibold" for="nama_unit_kerja">Nama Unit Kerja</label>
+			<div>
+			  <input type="text" class="form-control" name="nama_unit_kerja" id="nama_unit_kerja" value="<?php echo $nama_unit_kerja; ?>" placeholder="Nama Unit Kerja">
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="eselon">Eselon</label>
-			<div class="controls">
-			  <input type="text" class="span" name="eselon" id="eselon" value="<?php echo $eselon; ?>" placeholder="Eseleon">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="eselon">Eselon</label>
+			<div>
+			  <input type="text" class="form-control" name="eselon" id="eselon" value="<?php echo $eselon; ?>" placeholder="Eseleon">
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="parent_unit">Parent Unit</label>
-			<div class="controls">
-			  <input type="text" class="span" name="parent_unit" id="parent_unit" value="<?php echo $parent_unit; ?>" placeholder="Parent Unit">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="parent_unit">Parent Unit</label>
+			<div>
+			  <input type="text" class="form-control" name="parent_unit" id="parent_unit" value="<?php echo $parent_unit; ?>" placeholder="Parent Unit">
 			</div>
 		  </div>
 		  <input type="hidden" name="id_param" value="<?php echo $id_param; ?>">
 		  <input type="hidden" name="st" value="<?php echo $st; ?>">
-		  <div class="control-group">
-			<div class="controls">
+		  <div class="mb-3">
+			<div>
 			  <button type="submit" class="btn btn-primary">Simpan Data</button>
-			  <button type="reset" class="btn">Hapus Data</button>
+			  <button type="reset" class="btn btn-secondary">Hapus Data</button>
 			</div>
 		  </div>
 		<?php echo form_close(); ?>
-	</div>    
-	
-  </body>
-</html>
+	</div></div>
+<?php $this->load->view('dashboard_admin/layout/iframe_footer'); ?>

@@ -1,138 +1,133 @@
-	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/sunny/jquery-ui.css" type="text/css" rel="stylesheet"/>	
-	<script type="text/javascript" src="<?php echo base_url(); ?>asset/js/jquery-ui-1.7.2.custom.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url(); ?>asset/js/jquery.ui.i18n.all.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
-		$.datepicker.setDefaults($.datepicker.regional['id']);
-		$('#tanggal_lahir').datepicker({dateFormat: 'dd MM yy'});
-		$('#tanggal_pengangkatan_cpns').datepicker({dateFormat: 'dd MM yy'});
-		$('#tanggal_sk_pangkat').datepicker({dateFormat: 'dd MM yy'});
-		$('#tanggal_mulai_pangkat').datepicker({dateFormat: 'dd MM yy'});
-		$('#tanggal_selesai_pangkat').datepicker({dateFormat: 'dd MM yy'});
-		$('#tanggal_sk_jabatan').datepicker({dateFormat: 'dd MM yy'});
-		$('#tanggal_mulai_jabatan').datepicker({dateFormat: 'dd MM yy'});
-		$('#tanggal_selesai_jabatan').datepicker({dateFormat: 'dd MM yy'});
-		$('#tmt_eselon').datepicker({dateFormat: 'dd MM yy'});
+		if(window.flatpickr){flatpickr.localize(flatpickr.l10ns.id);}
+		flatpickr('#tanggal_lahir', {dateFormat: 'd F Y', locale: 'id', allowInput: true});
+		flatpickr('#tanggal_pengangkatan_cpns', {dateFormat: 'd F Y', locale: 'id', allowInput: true});
+		flatpickr('#tanggal_sk_pangkat', {dateFormat: 'd F Y', locale: 'id', allowInput: true});
+		flatpickr('#tanggal_mulai_pangkat', {dateFormat: 'd F Y', locale: 'id', allowInput: true});
+		flatpickr('#tanggal_selesai_pangkat', {dateFormat: 'd F Y', locale: 'id', allowInput: true});
+		flatpickr('#tanggal_sk_jabatan', {dateFormat: 'd F Y', locale: 'id', allowInput: true});
+		flatpickr('#tanggal_mulai_jabatan', {dateFormat: 'd F Y', locale: 'id', allowInput: true});
+		flatpickr('#tanggal_selesai_jabatan', {dateFormat: 'd F Y', locale: 'id', allowInput: true});
+		flatpickr('#tmt_eselon', {dateFormat: 'd F Y', locale: 'id', allowInput: true});
 	});
 	</script>
 <section id="data-pegawai">
-  <div class="well">
-  <div class="navbar navbar-inverse">
-	  <div class="navbar-inner">
-		<div class="container">
-		  <a class="brand" href="#">Data Pegawai</a>
-		  <div class="nav-collapse">
-			<ul class="nav">
-			  <li><a href="<?php echo base_url(); ?>pegawai/hapus/<?php echo $this->session->userdata("kode_pegawai"); ?>" onclick="return confirm('Anda yakin??');"><i class="icon-remove-sign icon-white"></i> Hapus Data Pegawai</a></li>
+  <div class="card card-body mb-3">
+  <div class="navbar navbar-expand-lg navbar-dark bg-primary toolbar-navbar px-3 py-2"><div class="container-fluid">
+		<div class="d-flex flex-wrap align-items-center gap-3 w-100">
+		  <a class="navbar-brand mb-0 fs-6 fw-bold" href="#">Data Pegawai</a>
+		  <div class="navbar-nav flex-row">
+			<ul class="navbar-nav gap-2">
+			  <li class="nav-item"><a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>pegawai/hapus/<?php echo $this->session->userdata("kode_pegawai"); ?>" onclick="return confirm('Anda yakin??');"><i class="bi bi-x-circle "></i> Hapus Data Pegawai</a></li>
 			</ul>
 		  </div>
-			<div class="span6 pull-right">
-				<div class="btn-group pull-right">
-				  <button class="btn btn-primary"><i class="icon-user icon-white"></i> <?php echo $this->session->userdata('nama_pegawai'); ?></button>
-				  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-					<span class="caret"></span>
+			<div class="ms-auto d-flex align-items-center gap-2 flex-wrap">
+				<div class="btn-group float-end">
+				  <button class="btn btn-primary"><i class="bi bi-person "></i> <?php echo $this->session->userdata('nama_pegawai'); ?></button>
+				  <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+					<span class="d-none"></span>
 				  </button>
 				</div>
 			</div>
 		</div>
-	  </div><!-- /navbar-inner -->
-	</div><!-- /navbar -->
-	<?php echo form_open_multipart('pegawai/simpan','class="form-horizontal"'); ?>
+	  </div></div>
+	<?php echo form_open_multipart('pegawai/simpan',''); ?>
 	<ul id="myTab" class="nav nav-tabs">
-        <li class="active"><a href="#dtpegawai" data-toggle="tab">Data Pegawai</a></li>
-        <li><a href="#dtpangkat" data-toggle="tab">Data Pangkat</a></li>
-        <li><a href="#dtjabatan" data-toggle="tab">Data Jabatan</a></li>
-        <li><a href="#dtfoto" data-toggle="tab">Foto Pegawai</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#dtpegawai" data-bs-toggle="tab">Data Pegawai</a></li>
+        <li class="nav-item"><a class="nav-link" href="#dtpangkat" data-bs-toggle="tab">Data Pangkat</a></li>
+        <li class="nav-item"><a class="nav-link" href="#dtjabatan" data-bs-toggle="tab">Data Jabatan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#dtfoto" data-bs-toggle="tab">Foto Pegawai</a></li>
     </ul>
     <?php if(validation_errors()) { ?>
-	<div class="alert alert-block">
-	  <button type="button" class="close" data-dismiss="alert">×</button>
+	<div class="alert alert-danger alert-dismissible fade show">
+	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	  	<h4>Terjadi Kesalahan!</h4>
 		<?php echo validation_errors(); ?>
 	</div>
 	<?php } ?>
     <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade in active" id="dtpegawai">
+        <div class="tab-pane fade show active" id="dtpegawai">
                 
-        <div class="control-group">
-			<label class="control-label" for="nip">NIP</label>
-			<div class="controls">
+        <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">NIP</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="nip" id="nip" value="<?php echo set_value('nip'); ?>" placeholder="NIP">
+			  <input type="text" class="form-control" name="nip" id="nip" value="<?php echo set_value('nip'); ?>" placeholder="NIP">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="nip" id="nip" value="<?php echo $nip; ?>" placeholder="NIP">
+			  <input type="text" class="form-control" name="nip" id="nip" value="<?php echo $nip; ?>" placeholder="NIP">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="nip_lama">NIP Lama</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip_lama">NIP Lama</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="nip_lama" id="nip_lama" value="<?php echo set_value('nip_lama'); ?>" placeholder="NIP Lama">
+			  <input type="text" class="form-control" name="nip_lama" id="nip_lama" value="<?php echo set_value('nip_lama'); ?>" placeholder="NIP Lama">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="nip_lama" id="nip_lama" value="<?php echo $nip_lama; ?>" placeholder="NIP Lama">
+			  <input type="text" class="form-control" name="nip_lama" id="nip_lama" value="<?php echo $nip_lama; ?>" placeholder="NIP Lama">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="no_kartu_pegawai">Nomor Kartu Pegawai</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="no_kartu_pegawai">Nomor Kartu Pegawai</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="no_kartu_pegawai" id="no_kartu_pegawai" value="<?php echo set_value('no_kartu_pegawai'); ?>" placeholder="Nomor Kartu Pegawai">
+			  <input type="text" class="form-control" name="no_kartu_pegawai" id="no_kartu_pegawai" value="<?php echo set_value('no_kartu_pegawai'); ?>" placeholder="Nomor Kartu Pegawai">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="no_kartu_pegawai" id="no_kartu_pegawai" value="<?php echo $no_kartu_pegawai; ?>" placeholder="Nomor Kartu Pegawai">
+			  <input type="text" class="form-control" name="no_kartu_pegawai" id="no_kartu_pegawai" value="<?php echo $no_kartu_pegawai; ?>" placeholder="Nomor Kartu Pegawai">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="nama_pegawai">Nama Pegawai</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="nama_pegawai">Nama Pegawai</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="nama_pegawai" id="nama_pegawai" value="<?php echo set_value('nama_pegawai'); ?>" placeholder="Nama Pegawai">
+			  <input type="text" class="form-control" name="nama_pegawai" id="nama_pegawai" value="<?php echo set_value('nama_pegawai'); ?>" placeholder="Nama Pegawai">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="nama_pegawai" id="nama_pegawai" value="<?php echo $nama_pegawai; ?>" placeholder="Nama Pegawai">
+			  <input type="text" class="form-control" name="nama_pegawai" id="nama_pegawai" value="<?php echo $nama_pegawai; ?>" placeholder="Nama Pegawai">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="jenis_kelamin">Jenis Kelamin</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="jenis_kelamin">Jenis Kelamin</label>
+			<div>
 				<select data-placeholder="Jenis Kelamin" class="chzn-select" style="width:500px;" tabindex="2" name="jenis_kelamin" id="jenis_kelamin">
 					<?php
 					$laki="";$perempuan="";$kosong1="";
@@ -146,9 +141,9 @@
 				</select>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="agama">Agama</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="agama">Agama</label>
+			<div>
 				<select data-placeholder="Agama" class="chzn-select" style="width:500px;" tabindex="2" name="agama" id="agama">
 					<?php
 					$islam="";$hindu="";$budha="";$protestan="";$katolik="";$konghucu="";$lainnya="";$kosong="";$kristen="";
@@ -174,9 +169,9 @@
 				</select>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="status_pegawai">Status Pegawai</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="status_pegawai">Status Pegawai</label>
+			<div>
 				<select data-placeholder="Status Pegawai" class="chzn-select" style="width:500px;" tabindex="2" name="status_pegawai" id="status_pegawai">
           			<option value=""></option>
 					<?php
@@ -200,137 +195,137 @@
 				</select>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="tempat_lahir">Tempat Lahir</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="tempat_lahir">Tempat Lahir</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="tempat_lahir" id="tempat_lahir" value="<?php echo set_value('tempat_lahir'); ?>" placeholder="Tempat Lahir">
+			  <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" value="<?php echo set_value('tempat_lahir'); ?>" placeholder="Tempat Lahir">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="tempat_lahir" id="tempat_lahir" value="<?php echo $tempat_lahir; ?>" placeholder="Tempat Lahir">
+			  <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" value="<?php echo $tempat_lahir; ?>" placeholder="Tempat Lahir">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="no_npwp">Nomor NPWP</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="no_npwp">Nomor NPWP</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="no_npwp" id="no_npwp" value="<?php echo set_value('no_npwp'); ?>" placeholder="Nomor NPWP">
+			  <input type="text" class="form-control" name="no_npwp" id="no_npwp" value="<?php echo set_value('no_npwp'); ?>" placeholder="Nomor NPWP">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="no_npwp" id="no_npwp" value="<?php echo $no_npwp; ?>" placeholder="Nomor NPWP">
+			  <input type="text" class="form-control" name="no_npwp" id="no_npwp" value="<?php echo $no_npwp; ?>" placeholder="Nomor NPWP">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="kartu_askes_pegawai">Kartu Askes Pegawai</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="kartu_askes_pegawai">Kartu Askes Pegawai</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="kartu_askes_pegawai" id="kartu_askes_pegawai" value="<?php echo set_value('kartu_askes_pegawai'); ?>" placeholder="Kartu Askes Pegawai">
+			  <input type="text" class="form-control" name="kartu_askes_pegawai" id="kartu_askes_pegawai" value="<?php echo set_value('kartu_askes_pegawai'); ?>" placeholder="Kartu Askes Pegawai">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="kartu_askes_pegawai" id="kartu_askes_pegawai" value="<?php echo $kartu_askes_pegawai; ?>" placeholder="Kartu Askes Pegawai">
+			  <input type="text" class="form-control" name="kartu_askes_pegawai" id="kartu_askes_pegawai" value="<?php echo $kartu_askes_pegawai; ?>" placeholder="Kartu Askes Pegawai">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="tanggal_lahir">Tanggal Lahir</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="tanggal_lahir">Tanggal Lahir</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_lahir" id="tanggal_lahir" value="<?php echo set_value('tanggal_lahir'); ?>" placeholder="Tanggal Lahir">
+			  <input type="text" class="form-control" name="tanggal_lahir" id="tanggal_lahir" value="<?php echo set_value('tanggal_lahir'); ?>" placeholder="Tanggal Lahir">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_lahir" id="tanggal_lahir" value="<?php echo $tanggal_lahir; ?>" placeholder="Tanggal Lahir">
+			  <input type="text" class="form-control" name="tanggal_lahir" id="tanggal_lahir" value="<?php echo $tanggal_lahir; ?>" placeholder="Tanggal Lahir">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="usia">Usia</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="usia">Usia</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="usia" id="usia" value="<?php echo set_value('usia'); ?>" placeholder="Usia">
+			  <input type="text" class="form-control" name="usia" id="usia" value="<?php echo set_value('usia'); ?>" placeholder="Usia">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="usia" id="usia" value="<?php echo $usia; ?>" placeholder="Usia">
+			  <input type="text" class="form-control" name="usia" id="usia" value="<?php echo $usia; ?>" placeholder="Usia">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="tanggal_pengangkatan_cpns">Tanggal Pengangkatan CPNS</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="tanggal_pengangkatan_cpns">Tanggal Pengangkatan CPNS</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_pengangkatan_cpns" id="tanggal_pengangkatan_cpns" value="<?php echo set_value('tanggal_pengangkatan_cpns'); ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_pengangkatan_cpns" id="tanggal_pengangkatan_cpns" value="<?php echo set_value('tanggal_pengangkatan_cpns'); ?>" placeholder=
 			  "Tanggal Pengangkatan CPNS">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_pengangkatan_cpns" id="tanggal_pengangkatan_cpns" value="<?php echo $tanggal_pengangkatan_cpns; ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_pengangkatan_cpns" id="tanggal_pengangkatan_cpns" value="<?php echo $tanggal_pengangkatan_cpns; ?>" placeholder=
 			  "Tanggal Pengangkatan CPNS">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-		  <div class="control-group">
-			<label class="control-label" for="alamat">Alamat</label>
-			<div class="controls">
+		  <div class="mb-3">
+			<label class="form-label fw-semibold" for="alamat">Alamat</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-				<textarea class="span6" style="outline:none; resize:none;" name="alamat" id="alamat" placeholder=
+				<textarea class="form-control" style="outline:none; resize:none;" name="alamat" id="alamat" placeholder=
 			  "Alamat"><?php echo set_value('alamat'); ?></textarea>
 			<?php
 			}
 			else
 			{
 			?>
-				<textarea class="span6" style="outline:none; resize:none;" name="alamat" id="alamat" placeholder=
+				<textarea class="form-control" style="outline:none; resize:none;" name="alamat" id="alamat" placeholder=
 			  "Alamat"><?php echo $alamat_pegawai; ?></textarea>
 			<?php
 			}
@@ -341,9 +336,9 @@
         
     	</div>
         <div class="tab-pane fade" id="dtpangkat">
-          <div class="control-group">
-			<label class="control-label" for="nip">Status Pegawai</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Status Pegawai</label>
+			<div>
 			<select data-placeholder="Status Pegawai" class="chzn-select" style="width:500px;" tabindex="2" name="status_pegawai_pangkat" id="status_pegawai_pangkat">
           			<option value=""></option>
 			  	<?php
@@ -366,9 +361,9 @@
 			</select>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Golongan</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Golongan</label>
+			<div>
 			<select data-placeholder="Golongan" class="chzn-select" style="width:500px;" tabindex="2" name="id_golongan" id="id_golongan">
 			  	<?php
 			  		foreach($mst_golongan->result_array() as $mg)
@@ -390,84 +385,84 @@
 			</select>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Nomor SK</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Nomor SK</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="nomor_sk_pangkat" id="nomor_sk_pangkat" value="<?php echo set_value('nomor_sk_pangkat'); ?>" placeholder=
+			  <input type="text" class="form-control" name="nomor_sk_pangkat" id="nomor_sk_pangkat" value="<?php echo set_value('nomor_sk_pangkat'); ?>" placeholder=
 			  "Nomor SK Pangkat">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="nomor_sk_pangkat" id="nomor_sk_pangkat" value="<?php echo $nomor_sk_pangkat; ?>" placeholder=
+			  <input type="text" class="form-control" name="nomor_sk_pangkat" id="nomor_sk_pangkat" value="<?php echo $nomor_sk_pangkat; ?>" placeholder=
 			  "Nomor SK Pangkat">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Tanggal SK</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Tanggal SK</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_sk_pangkat" id="tanggal_sk_pangkat" value="<?php echo set_value('tanggal_sk_pangkat'); ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_sk_pangkat" id="tanggal_sk_pangkat" value="<?php echo set_value('tanggal_sk_pangkat'); ?>" placeholder=
 			  "Tanggal SK Pangkat">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_sk_pangkat" id="tanggal_sk_pangkat" value="<?php echo $tanggal_sk_pangkat; ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_sk_pangkat" id="tanggal_sk_pangkat" value="<?php echo $tanggal_sk_pangkat; ?>" placeholder=
 			  "Tanggal SK Pangkat">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Tanggal Mulai</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Tanggal Mulai</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_mulai_pangkat" id="tanggal_mulai_pangkat" value="<?php echo set_value('tanggal_mulai_pangkat'); ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_mulai_pangkat" id="tanggal_mulai_pangkat" value="<?php echo set_value('tanggal_mulai_pangkat'); ?>" placeholder=
 			  "Tanggal Mulai Pangkat">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_mulai_pangkat" id="tanggal_mulai_pangkat" value="<?php echo $tanggal_mulai_pangkat; ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_mulai_pangkat" id="tanggal_mulai_pangkat" value="<?php echo $tanggal_mulai_pangkat; ?>" placeholder=
 			  "Tanggal Mulai Pangkat">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Tanggal Selesai</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Tanggal Selesai</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_selesai_pangkat" id="tanggal_selesai_pangkat" value="<?php echo set_value('tanggal_selesai_pangkat'); ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_selesai_pangkat" id="tanggal_selesai_pangkat" value="<?php echo set_value('tanggal_selesai_pangkat'); ?>" placeholder=
 			  "Tanggal Selesai Pangkat">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_selesai_pangkat" id="tanggal_selesai_pangkat" value="<?php echo $tanggal_selesai_pangkat; ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_selesai_pangkat" id="tanggal_selesai_pangkat" value="<?php echo $tanggal_selesai_pangkat; ?>" placeholder=
 			  "Tanggal Selesai Pangkat">
 			<?php
 			}
@@ -477,9 +472,9 @@
         </div>
         <div class="tab-pane fade" id="dtjabatan">
         
-          <div class="control-group">
-			<label class="control-label" for="nip">Status Jabatan</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Status Jabatan</label>
+			<div>
 			<select data-placeholder="Status Jabatan" class="chzn-select" style="width:500px;" tabindex="2" name="id_status_jabatan" id="id_status_jabatan">
 			  	<?php
 			  		foreach($mst_stts_jabatan->result_array() as $msj)
@@ -501,9 +496,9 @@
 			</select>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Jabatan</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Jabatan</label>
+			<div>
 			<select data-placeholder="Jabatan" class="chzn-select" style="width:500px;" tabindex="2" name="id_jabatan" id="id_jabatan">
 			  	<?php
 			  		foreach($mst_jabatan->result_array() as $mj)
@@ -525,9 +520,9 @@
 			</select>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Unit Kerja</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Unit Kerja</label>
+			<div>
 			<select data-placeholder="Unit Kerja" class="chzn-select" style="width:500px;" tabindex="2" name="id_unit_kerja" id="id_unit_kerja">
 			  	<?php
 			  		foreach($mst_unit_kerja->result_array() as $muk)
@@ -549,9 +544,9 @@
 			</select>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Satuan Kerja</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Satuan Kerja</label>
+			<div>
 			<select data-placeholder="Satuan Kerja" class="chzn-select" style="width:500px;" tabindex="2" name="id_satuan_kerja" id="id_satuan_kerja">
 			  	<?php
 			  		foreach($mst_satuan_kerja->result_array() as $msk)
@@ -573,9 +568,9 @@
 			</select>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Lokasi Kerja</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Lokasi Kerja</label>
+			<div>
 			<select data-placeholder="Lokasi Kerja" class="chzn-select" style="width:500px;" tabindex="2" name="lokasi_kerja" id="lokasi_kerja">
 			<option value=""></option>
 			  	<?php
@@ -598,9 +593,9 @@
 			</select>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Eselon</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Eselon</label>
+			<div>
 			<select data-placeholder="Eselon" class="chzn-select" style="width:500px;" tabindex="2" name="id_eselon" id="id_eselon">
 			  	<?php
 			  		foreach($mst_eselon->result_array() as $me)
@@ -622,105 +617,105 @@
 			</select>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">TMT Eselon</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">TMT Eselon</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="tmt_eselon" id="tmt_eselon" value="<?php echo set_value('tmt_eselon'); ?>" placeholder=
+			  <input type="text" class="form-control" name="tmt_eselon" id="tmt_eselon" value="<?php echo set_value('tmt_eselon'); ?>" placeholder=
 			  "TMT Eselon">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="tmt_eselon" id="tmt_eselon" value="<?php echo $tmt_eselon; ?>" placeholder=
+			  <input type="text" class="form-control" name="tmt_eselon" id="tmt_eselon" value="<?php echo $tmt_eselon; ?>" placeholder=
 			  "TMT Eselon">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Nomor SK</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Nomor SK</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="nomor_sk_jabatan" id="nomor_sk_jabatan" value="<?php echo set_value('nomor_sk_jabatan'); ?>" placeholder=
+			  <input type="text" class="form-control" name="nomor_sk_jabatan" id="nomor_sk_jabatan" value="<?php echo set_value('nomor_sk_jabatan'); ?>" placeholder=
 			  "Nomor SK Jabatan">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="nomor_sk_jabatan" id="nomor_sk_jabatan" value="<?php echo $nomor_sk_jabatan; ?>" placeholder=
+			  <input type="text" class="form-control" name="nomor_sk_jabatan" id="nomor_sk_jabatan" value="<?php echo $nomor_sk_jabatan; ?>" placeholder=
 			  "Nomor SK Jabatan">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Tanggal SK</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Tanggal SK</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_sk_jabatan" id="tanggal_sk_jabatan" value="<?php echo set_value('tanggal_sk_jabatan'); ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_sk_jabatan" id="tanggal_sk_jabatan" value="<?php echo set_value('tanggal_sk_jabatan'); ?>" placeholder=
 			  "Tanggal SK Jabatan">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_sk_jabatan" id="tanggal_sk_jabatan" value="<?php echo $tanggal_sk_jabatan; ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_sk_jabatan" id="tanggal_sk_jabatan" value="<?php echo $tanggal_sk_jabatan; ?>" placeholder=
 			  "Tanggal SK Jabatan">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Tanggal Mulai</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Tanggal Mulai</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_mulai_jabatan" id="tanggal_mulai_jabatan" value="<?php echo set_value('tanggal_mulai_jabatan'); ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_mulai_jabatan" id="tanggal_mulai_jabatan" value="<?php echo set_value('tanggal_mulai_jabatan'); ?>" placeholder=
 			  "Tanggal Mulai Jabatan">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_mulai_jabatan" id="tanggal_mulai_jabatan" value="<?php echo $tanggal_mulai_jabatan; ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_mulai_jabatan" id="tanggal_mulai_jabatan" value="<?php echo $tanggal_mulai_jabatan; ?>" placeholder=
 			  "Tanggal Mulai Jabatan">
 			<?php
 			}
 			?>
 			</div>
 		  </div>
-          <div class="control-group">
-			<label class="control-label" for="nip">Tanggal Selesai</label>
-			<div class="controls">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Tanggal Selesai</label>
+			<div>
 			<?php
 			if($st=="tambah")
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_selesai_jabatan" id="tanggal_selesai_jabatan" value="<?php echo set_value('tanggal_selesai_jabatan'); ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_selesai_jabatan" id="tanggal_selesai_jabatan" value="<?php echo set_value('tanggal_selesai_jabatan'); ?>" placeholder=
 			  "Tanggal Selesai Jabatan">
 			<?php
 			}
 			else
 			{
 			?>
-			  <input type="text" class="span6" name="tanggal_selesai_jabatan" id="tanggal_selesai_jabatan" value="<?php echo $tanggal_selesai_jabatan; ?>" placeholder=
+			  <input type="text" class="form-control" name="tanggal_selesai_jabatan" id="tanggal_selesai_jabatan" value="<?php echo $tanggal_selesai_jabatan; ?>" placeholder=
 			  "Tanggal Selesai Jabatan">
 			<?php
 			}
@@ -737,19 +732,19 @@
 					$ft="no-img.jpg";
 				}
 			?>
-          <div class="control-group">
-			<label class="control-label" for="nip">Upload Foto</label>
-			<div class="controls">
-			<input type="file" class="span6" name="userfile" id="userfile" placeholder="Upload Foto">
+          <div class="mb-3">
+			<label class="form-label fw-semibold" for="nip">Upload Foto</label>
+			<div>
+			<input type="file" class="form-control" name="userfile" id="userfile" placeholder="Upload Foto">
 			<p><img src="<?php echo base_url(); ?>asset/foto_pegawai/medium/<?php echo $ft; ?>" /></p>
 			</div>
 		</div>
 	</div>
 	
-		  <div class="control-group">
-			<div class="controls">
-			  <button type="submit" class="btn btn-primary">Simpan Data</button>
-			  <button type="reset" class="btn">Hapus Data</button>
+		  <div class="mb-3">
+			<div>
+			  <button type="submit" class="btn btn-primary text-nowrap">Simpan Data</button>
+			  <button type="reset" class="btn btn-secondary">Hapus Data</button>
 			</div>
 		  </div>
 		  
@@ -765,14 +760,4 @@
 		<?php echo form_close(); ?>
   </div>
 </section>
-
-
-
-
-      <footer class="well">
-        <p><?php echo $credit; ?></p>
-      </footer>
-
-    </div> <!-- /container -->
-  </body>
-</html>
+<?php $this->load->view('dashboard_admin/layout/main_footer'); ?>
