@@ -14,8 +14,8 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/ci-simpeg/';
-//$config['base_url']	= 'http://simpeg.gedelumbung.com/';
+$config['base_url']  = 'http://localhost/SIMPEG/';
+//$config['base_url']        = 'http://localhost/SIMPEG/';
 
 /*
 |--------------------------------------------------------------------------
