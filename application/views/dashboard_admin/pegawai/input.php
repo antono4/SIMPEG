@@ -1,22 +1,22 @@
 <?php $this->load->view('dashboard_admin/layout/iframe_header'); ?>
-<div class="card"><div class="card-body">
+<div class="x_panel"><div class="x_content">
 	
 	<?php echo form_open_multipart('pegawai/simpan',''); ?>
 	<ul id="myTab" class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active" href="#dtpegawai" data-bs-toggle="tab">Data Pegawai</a></li>
-        <li class="nav-item"><a class="nav-link" href="#dtpangkat" data-bs-toggle="tab">Data Pangkat</a></li>
-        <li class="nav-item"><a class="nav-link" href="#dtjabatan" data-bs-toggle="tab">Data Jabatan</a></li>
-        <li class="nav-item"><a class="nav-link" href="#dtfoto" data-bs-toggle="tab">Foto Pegawai</a></li>
+        <li class="active"><a href="#dtpegawai" data-toggle="tab">Data Pegawai</a></li>
+        <li><a href="#dtpangkat" data-toggle="tab">Data Pangkat</a></li>
+        <li><a href="#dtjabatan" data-toggle="tab">Data Jabatan</a></li>
+        <li><a href="#dtfoto" data-toggle="tab">Foto Pegawai</a></li>
     </ul>
     <?php if(validation_errors()) { ?>
-	<div class="alert alert-danger alert-dismissible fade show">
-	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	<div class="alert alert-danger alert-dismissible fade in">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	  	<h4>Terjadi Kesalahan!</h4>
 		<?php echo validation_errors(); ?>
 	</div>
 	<?php } ?>
     <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade show active" id="dtpegawai">
+        <div class="tab-pane fade in active" id="dtpegawai">
                 
         <div class="mb-3">
 			<label class="form-label fw-semibold" for="nip">NIP</label>
@@ -713,7 +713,7 @@
 		  <div class="mb-3">
 			<div>
 			  <button type="submit" class="btn btn-primary">Simpan Data</button>
-			  <button type="reset" class="btn btn-secondary">Hapus Data</button>
+			  <button type="reset" class="btn btn-default">Hapus Data</button>
 			</div>
 		  </div>
 		  

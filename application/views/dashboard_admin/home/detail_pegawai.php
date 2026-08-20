@@ -4,25 +4,25 @@
 	<header class="mb-3" id="overview">
 	  <div class="subnav">
 		<ul class="nav nav-pills">
-		  <li class="nav-item"><a class="nav-link" href="#data-pegawai">Pegawai</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-keluarga">Keluarga</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-pangkat">Riwayat Pangkat</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-jabatan">Riwayat Jabatan</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-pendidikan">Pendidikan</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-pelatihan">Pelatihan</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-penghargaan">Penghargaan</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-seminar">Seminar</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-organisasi">Organisasi</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-gaji">Gaji Pokok</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-hukuman">Hukuman</a></li>
-		  <li class="nav-item"><a class="nav-link" href="#data-dp3">DP3</a></li>
+		  <li><a href="#data-pegawai">Pegawai</a></li>
+		  <li><a href="#data-keluarga">Keluarga</a></li>
+		  <li><a href="#data-pangkat">Riwayat Pangkat</a></li>
+		  <li><a href="#data-jabatan">Riwayat Jabatan</a></li>
+		  <li><a href="#data-pendidikan">Pendidikan</a></li>
+		  <li><a href="#data-pelatihan">Pelatihan</a></li>
+		  <li><a href="#data-penghargaan">Penghargaan</a></li>
+		  <li><a href="#data-seminar">Seminar</a></li>
+		  <li><a href="#data-organisasi">Organisasi</a></li>
+		  <li><a href="#data-gaji">Gaji Pokok</a></li>
+		  <li><a href="#data-hukuman">Hukuman</a></li>
+		  <li><a href="#data-dp3">DP3</a></li>
 		</ul>
 	  </div>
 	</header>
 
 <section id="data-pegawai">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Pegawai</h1>
   	</div>
 	
@@ -92,11 +92,11 @@
 </section>
 
 <section id="data-keluarga">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Keluarga</h1>
   	</div>
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -123,11 +123,11 @@
         <td><?php echo $dk['pekerjaan']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_keluarga/detail/<?php echo $dk['id_data_keluarga']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_keluarga/detail/<?php echo $dk['id_data_keluarga']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_keluarga/edit/<?php echo $dk['id_data_keluarga']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_keluarga/hapus/<?php echo $dk['id_data_keluarga']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_keluarga/edit/<?php echo $dk['id_data_keluarga']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_keluarga/hapus/<?php echo $dk['id_data_keluarga']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -142,12 +142,12 @@
 </section>
 
 <section id="data-pangkat">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Riwayat Pangkat</h1>
   	</div>
   	
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -178,11 +178,11 @@
         <td><?php echo $drp['masa_kerja']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_riwayat_pangkat/detail/<?php echo $drp['id_riwayat_pangkat']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_riwayat_pangkat/detail/<?php echo $drp['id_riwayat_pangkat']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/edit/<?php echo $drp['id_riwayat_pangkat']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/hapus/<?php echo $drp['id_riwayat_pangkat']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/edit/<?php echo $drp['id_riwayat_pangkat']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/hapus/<?php echo $drp['id_riwayat_pangkat']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -197,12 +197,12 @@
 </section>
 
 <section id="data-jabatan">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Riwayat Jabatan</h1>
   	</div>
   	
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -229,11 +229,11 @@
         <td><?php echo $drj['nama_eselon']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_riwayat_pangkat/detail/<?php echo $drj['id_riwayat_jabatan']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_riwayat_pangkat/detail/<?php echo $drj['id_riwayat_jabatan']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/edit/<?php echo $drj['id_riwayat_jabatan']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/hapus/<?php echo $drj['id_riwayat_jabatan']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/edit/<?php echo $drj['id_riwayat_jabatan']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/hapus/<?php echo $drj['id_riwayat_jabatan']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -248,12 +248,12 @@
 </section>
 
 <section id="data-pendidikan">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Pendidikan</h1>
   	</div>
   	
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -280,11 +280,11 @@
         <td><?php echo $dpn['tanggal_lulus']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_riwayat_pangkat/detail/<?php echo $dpn['id_pendidikan']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_riwayat_pangkat/detail/<?php echo $dpn['id_pendidikan']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/edit/<?php echo $dpn['id_pendidikan']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/hapus/<?php echo $dpn['id_pendidikan']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/edit/<?php echo $dpn['id_pendidikan']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/hapus/<?php echo $dpn['id_pendidikan']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -299,12 +299,12 @@
 </section>
 
 <section id="data-pelatihan">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Pelatihan</h1>
   	</div>
   	
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -331,11 +331,11 @@
         <td><?php echo $dpl['negara']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_pendidikan/detail/<?php echo $dpl['id_pelatihan']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_pendidikan/detail/<?php echo $dpl['id_pelatihan']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_pendidikan/edit/<?php echo $dpl['id_pelatihan']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_pendidikan/hapus/<?php echo $dpl['id_pelatihan']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_pendidikan/edit/<?php echo $dpl['id_pelatihan']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_pendidikan/hapus/<?php echo $dpl['id_pelatihan']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -350,12 +350,12 @@
 </section>
 
 <section id="data-penghargaan">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Penghargaan</h1>
   	</div>
   	
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -378,11 +378,11 @@
         <td><?php echo $drj['tanggal_sk']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_penghargaan/detail/<?php echo $drj['id_penghargaan']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_penghargaan/detail/<?php echo $drj['id_penghargaan']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_penghargaan/edit/<?php echo $drj['id_penghargaan']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_penghargaan/hapus/<?php echo $drj['id_penghargaan']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_penghargaan/edit/<?php echo $drj['id_penghargaan']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_penghargaan/hapus/<?php echo $drj['id_penghargaan']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -397,12 +397,12 @@
 </section>
 
 <section id="data-seminar">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Seminar</h1>
   	</div>
   	
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -425,11 +425,11 @@
         <td><?php echo $ds['tanggal']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_seminar/detail/<?php echo $ds['id_seminar']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_seminar/detail/<?php echo $ds['id_seminar']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_seminar/edit/<?php echo $ds['id_seminar']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_seminar/hapus/<?php echo $ds['id_seminar']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_seminar/edit/<?php echo $ds['id_seminar']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_seminar/hapus/<?php echo $ds['id_seminar']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -444,12 +444,12 @@
 </section>
 
 <section id="data-organisasi">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Organisasi</h1>
   	</div>
   	
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -472,11 +472,11 @@
         <td><?php echo $do['tanggal']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_organisasi/detail/<?php echo $do['id_organisasi']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_organisasi/detail/<?php echo $do['id_organisasi']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/edit/<?php echo $do['id_organisasi']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/hapus/<?php echo $do['id_organisasi']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/edit/<?php echo $do['id_organisasi']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/hapus/<?php echo $do['id_organisasi']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -491,12 +491,12 @@
 </section>
 
 <section id="data-gaji">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Gaji Pokok</h1>
   	</div>
   	
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -525,11 +525,11 @@
         <td><?php echo $dgp['tanggal_selesai']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_gaji/detail/<?php echo $dgp['id_gaji_pokok']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_gaji/detail/<?php echo $dgp['id_gaji_pokok']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_gaji/edit/<?php echo $dgp['id_gaji_pokok']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_gaji/hapus/<?php echo $dgp['id_gaji_pokok']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_gaji/edit/<?php echo $dgp['id_gaji_pokok']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_gaji/hapus/<?php echo $dgp['id_gaji_pokok']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -544,12 +544,12 @@
 </section>
 
 <section id="data-hukuman">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data Hukuman</h1>
   	</div>
   	
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -578,11 +578,11 @@
         <td><?php echo $dh['masa_berlaku']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_hukuman/detail/<?php echo $dh['id_hukuman']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_hukuman/detail/<?php echo $dh['id_hukuman']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_hukuman/edit/<?php echo $dh['id_hukuman']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_hukuman/hapus/<?php echo $dh['id_hukuman']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_hukuman/edit/<?php echo $dh['id_hukuman']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_hukuman/hapus/<?php echo $dh['id_hukuman']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>
@@ -597,12 +597,12 @@
 </section>
 
 <section id="data-dp3">
-  <div class="card card-body mb-3">
-	<div class="border-bottom pb-2 mb-3">
+  <div class="x_panel">
+	<div class="page-header">
     	<h1>Data DP3</h1>
   	</div>
   	
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -629,11 +629,11 @@
         <td><?php echo $dp3['mengetahui']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary" href="<?php echo base_url(); ?>data_dp3/detail/<?php echo $dp3['id_dp3']; ?>"><i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default" href="<?php echo base_url(); ?>data_dp3/detail/<?php echo $dp3['id_dp3']; ?>"><i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_dp3/edit/<?php echo $dp3['id_dp3']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_dp3/hapus/<?php echo $dp3['id_dp3']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_dp3/edit/<?php echo $dp3['id_dp3']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_dp3/hapus/<?php echo $dp3['id_dp3']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>

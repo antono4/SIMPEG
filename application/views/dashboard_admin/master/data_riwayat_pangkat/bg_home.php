@@ -1,24 +1,24 @@
 <section id="data-keluarga">
-  <div class="card card-body mb-3">
-	<div class="navbar navbar-expand-lg navbar-dark bg-primary toolbar-navbar px-3 py-2"><div class="container-fluid">
+  <div class="x_panel">
+	<div class="toolbar-navbar"><div class="container-fluid">
 		<div class="d-flex flex-wrap align-items-center gap-3 w-100">
-		  <a class="navbar-brand mb-0 fs-6 fw-bold" href="#">Data Riwayat Pangkat</a>
-		  <div class="navbar-nav flex-row">
-			<ul class="navbar-nav gap-2">
-			  <li class="nav-item"><a class="btn btn-light btn-sm iframe-box-lg" href="<?php echo base_url(); ?>data_riwayat_pangkat/tambah/<?php echo $this->session->userdata('kode_pegawai'); ?>"><i class="bi bi-plus-circle "></i> Tambah Data Riwayat Pangkat</a></li>
+		  <a class="toolbar-brand" href="#">Data Riwayat Pangkat</a>
+		  <div class="toolbar-group">
+			<ul class="list-inline toolbar-list">
+			  <li><a class="btn btn-default btn-sm iframe-box-lg" href="<?php echo base_url(); ?>data_riwayat_pangkat/tambah/<?php echo $this->session->userdata('kode_pegawai'); ?>"><i class="fa fa-plus-circle "></i> Tambah Data Riwayat Pangkat</a></li>
 			</ul>
 		  </div>
-			<div class="ms-auto d-flex align-items-center gap-2 flex-wrap">
-				<div class="btn-group float-end">
-				  <button class="btn btn-primary"><i class="bi bi-person "></i> <?php echo $this->session->userdata('nama_pegawai'); ?></button>
-				  <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-					<span class="d-none"></span>
+			<div class="pull-right d-flex align-items-center gap-2 flex-wrap">
+				<div class="btn-group pull-right">
+				  <button class="btn btn-primary"><i class="fa fa-user "></i> <?php echo $this->session->userdata('nama_pegawai'); ?></button>
+				  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
 				  </button>
 				</div>
 			</div>
 		</div>
 	  </div></div>
-  	<table class="table table-hover table-sm align-middle">
+  	<table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
@@ -45,12 +45,12 @@
         <td><?php echo $dk['masa_kerja']; ?></td>
 		<td>
 	        <div class="btn-group">
-	          <a class="btn btn-sm btn-outline-secondary iframe-box-lg" href="<?php echo base_url(); ?>data_riwayat_pangkat/detail/<?php echo $dk['id_riwayat_pangkat']; ?>">
-			  <i class="bi bi-check-circle"></i> Lihat Detail</a>
-	          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="d-none"></span></a>
+	          <a class="btn btn-sm btn-default iframe-box-lg" href="<?php echo base_url(); ?>data_riwayat_pangkat/detail/<?php echo $dk['id_riwayat_pangkat']; ?>">
+			  <i class="fa fa-check-circle"></i> Lihat Detail</a>
+	          <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item iframe-box-lg" href="<?php echo base_url(); ?>data_riwayat_pangkat/edit/<?php echo $dk['id_riwayat_pangkat']; ?>"><i class="bi bi-pencil"></i> Edit Data</a></li>
-	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/hapus/<?php echo $dk['id_riwayat_pangkat']; ?>" onClick="return confirm('Anda yakin..???');"><i class="bi bi-trash"></i> Hapus Data</a></li>
+	            <li><a class="dropdown-item iframe-box-lg" href="<?php echo base_url(); ?>data_riwayat_pangkat/edit/<?php echo $dk['id_riwayat_pangkat']; ?>"><i class="fa fa-pencil"></i> Edit Data</a></li>
+	            <li><a class="dropdown-item" href="<?php echo base_url(); ?>data_riwayat_pangkat/hapus/<?php echo $dk['id_riwayat_pangkat']; ?>" onClick="return confirm('Anda yakin..???');"><i class="fa fa-trash"></i> Hapus Data</a></li>
 	          </ul>
 	        </div><!-- /btn-group -->
 		</td>

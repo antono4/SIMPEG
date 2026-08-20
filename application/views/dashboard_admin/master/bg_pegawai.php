@@ -13,20 +13,20 @@
 	});
 	</script>
 <section id="data-pegawai">
-  <div class="card card-body mb-3">
-  <div class="navbar navbar-expand-lg navbar-dark bg-primary toolbar-navbar px-3 py-2"><div class="container-fluid">
+  <div class="x_panel">
+  <div class="toolbar-navbar"><div class="container-fluid">
 		<div class="d-flex flex-wrap align-items-center gap-3 w-100">
-		  <a class="navbar-brand mb-0 fs-6 fw-bold" href="#">Data Pegawai</a>
-		  <div class="navbar-nav flex-row">
-			<ul class="navbar-nav gap-2">
-			  <li class="nav-item"><a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>pegawai/hapus/<?php echo $this->session->userdata("kode_pegawai"); ?>" onclick="return confirm('Anda yakin??');"><i class="bi bi-x-circle "></i> Hapus Data Pegawai</a></li>
+		  <a class="toolbar-brand" href="#">Data Pegawai</a>
+		  <div class="toolbar-group">
+			<ul class="list-inline toolbar-list">
+			  <li><a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>pegawai/hapus/<?php echo $this->session->userdata("kode_pegawai"); ?>" onclick="return confirm('Anda yakin??');"><i class="fa fa-times-circle "></i> Hapus Data Pegawai</a></li>
 			</ul>
 		  </div>
-			<div class="ms-auto d-flex align-items-center gap-2 flex-wrap">
-				<div class="btn-group float-end">
-				  <button class="btn btn-primary"><i class="bi bi-person "></i> <?php echo $this->session->userdata('nama_pegawai'); ?></button>
-				  <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-					<span class="d-none"></span>
+			<div class="pull-right d-flex align-items-center gap-2 flex-wrap">
+				<div class="btn-group pull-right">
+				  <button class="btn btn-primary"><i class="fa fa-user "></i> <?php echo $this->session->userdata('nama_pegawai'); ?></button>
+				  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
 				  </button>
 				</div>
 			</div>
@@ -34,20 +34,20 @@
 	  </div></div>
 	<?php echo form_open_multipart('pegawai/simpan',''); ?>
 	<ul id="myTab" class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active" href="#dtpegawai" data-bs-toggle="tab">Data Pegawai</a></li>
-        <li class="nav-item"><a class="nav-link" href="#dtpangkat" data-bs-toggle="tab">Data Pangkat</a></li>
-        <li class="nav-item"><a class="nav-link" href="#dtjabatan" data-bs-toggle="tab">Data Jabatan</a></li>
-        <li class="nav-item"><a class="nav-link" href="#dtfoto" data-bs-toggle="tab">Foto Pegawai</a></li>
+        <li class="active"><a href="#dtpegawai" data-toggle="tab">Data Pegawai</a></li>
+        <li><a href="#dtpangkat" data-toggle="tab">Data Pangkat</a></li>
+        <li><a href="#dtjabatan" data-toggle="tab">Data Jabatan</a></li>
+        <li><a href="#dtfoto" data-toggle="tab">Foto Pegawai</a></li>
     </ul>
     <?php if(validation_errors()) { ?>
-	<div class="alert alert-danger alert-dismissible fade show">
-	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	<div class="alert alert-danger alert-dismissible fade in">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	  	<h4>Terjadi Kesalahan!</h4>
 		<?php echo validation_errors(); ?>
 	</div>
 	<?php } ?>
     <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade show active" id="dtpegawai">
+        <div class="tab-pane fade in active" id="dtpegawai">
                 
         <div class="mb-3">
 			<label class="form-label fw-semibold" for="nip">NIP</label>
@@ -744,7 +744,7 @@
 		  <div class="mb-3">
 			<div>
 			  <button type="submit" class="btn btn-primary text-nowrap">Simpan Data</button>
-			  <button type="reset" class="btn btn-secondary">Hapus Data</button>
+			  <button type="reset" class="btn btn-default">Hapus Data</button>
 			</div>
 		  </div>
 		  

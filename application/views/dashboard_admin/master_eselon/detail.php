@@ -1,5 +1,5 @@
 <?php $this->load->view('dashboard_admin/layout/iframe_header'); ?>
-<div class="card"><div class="card-body">
+<div class="x_panel"><div class="x_content">
 		<?php echo form_open('master_eselon/simpan',''); ?>
 		  <div class="mb-3">
 		  	<legend>Master Eselon</legend>

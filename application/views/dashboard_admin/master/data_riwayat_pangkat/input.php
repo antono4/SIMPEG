@@ -1,8 +1,8 @@
 <?php $this->load->view('dashboard_admin/layout/iframe_header'); ?>
-<div class="card"><div class="card-body">
+<div class="x_panel"><div class="x_content">
 	<?php if(validation_errors()) { ?>
-	<div class="alert alert-danger alert-dismissible fade show">
-	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	<div class="alert alert-danger alert-dismissible fade in">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	  	<h4>Terjadi Kesalahan!</h4>
 		<?php echo validation_errors(); ?>
 	</div>
@@ -89,7 +89,7 @@
 		  <div class="mb-3">
 			<div>
 			  <button type="submit" class="btn btn-primary">Simpan Data</button>
-			  <button type="reset" class="btn btn-secondary">Hapus Data</button>
+			  <button type="reset" class="btn btn-default">Hapus Data</button>
 			</div>
 		  </div>
 		  <script src="http://localhost/sgmc/asset/js/chosen.jquery.js" type="text/javascript"></script>

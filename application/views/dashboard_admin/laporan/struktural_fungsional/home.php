@@ -1,18 +1,18 @@
 <?php $this->load->view('dashboard_admin/layout/main_header', array('page_title' => 'Laporan Pegawai - Status Jabatan', 'active_menu' => 'laporan')); ?>
 <div class="callout callout-info"><h5><?php echo $judul_lengkap.' '.$instansi; ?></h5><p class="mb-0"><?php echo $alamat; ?></p></div>
 
-  <div class="card card-body mb-3">
-	<div class="navbar navbar-expand-lg navbar-dark bg-primary toolbar-navbar px-3 py-2"><div class="container-fluid">
+  <div class="x_panel">
+	<div class="toolbar-navbar"><div class="container-fluid">
 		<div class="d-flex flex-wrap align-items-center gap-3 w-100">
-		  <a class="navbar-brand mb-0 fs-6 fw-bold" href="#">Laporan Pegawai - Status Jabatan</a>
-		<div class="ms-auto d-flex align-items-center gap-2 flex-wrap">
+		  <a class="toolbar-brand" href="#">Laporan Pegawai - Status Jabatan</a>
+		<div class="pull-right d-flex align-items-center gap-2 flex-wrap">
 		<?php
 			echo form_open("laporan_pegawai_struktural_fungsional/set",'class="d-flex align-items-center gap-2"')
 		?>
 			<span class="text-white-50 small text-nowrap">Status Jabatan</span>
 			
 			<div class="col-md-3">
-			<select class="form-select form-select-sm w-auto" name="id_status_jabatan">
+			<select class="form-control input-sm w-auto" name="id_status_jabatan">
 			<option value="">- Status Jabatan Pegawai -</option>
 			  	<?php
 			  		foreach($mst_status_jabatan->result_array() as $msk)
@@ -37,7 +37,7 @@
 			<span class="text-white-50 small text-nowrap">Eselon</span>
 			
 			<div class="col-md-3">
-			<select class="form-select form-select-sm w-auto" name="id_eselon">
+			<select class="form-control input-sm w-auto" name="id_eselon">
 			<option value="">- Eselon -</option>
 			  	<?php
 			  		foreach($mst_eselon->result_array() as $msk)
@@ -62,7 +62,7 @@
 			<span class="text-white-50 small text-nowrap">Satuan Kerja</span>
 			
 			<div class="col-md-3">
-			<select class="form-select form-select-sm w-auto" name="id_satuan_kerja">
+			<select class="form-control input-sm w-auto" name="id_satuan_kerja">
 			<option value="">- Satuan Kerja -</option>
 			<?php
 			if($this->session->userdata('id_satuan_kerja')=="Semua")
@@ -95,9 +95,9 @@
 			  	?>
 			</select>
 		</div>
-		<div class="span4 float-end">
-  		<a class="btn btn-secondary" href="<?php echo base_url(); ?>laporan_pegawai_struktural_fungsional/export"><i class="bi bi-check-circle"></i> Export ke Excell</a>
-		  <button type="submit" class="btn btn-primary text-nowrap"><i class="bi bi-search "></i> Cari Data Laporan</button>
+		<div class="span4 pull-right">
+  		<a class="btn btn-default" href="<?php echo base_url(); ?>laporan_pegawai_struktural_fungsional/export"><i class="fa fa-check-circle"></i> Export ke Excell</a>
+		  <button type="submit" class="btn btn-primary text-nowrap"><i class="fa fa-search "></i> Cari Data Laporan</button>
 		  </div>
 		<?php echo form_close(); ?>
 		</div>
@@ -106,7 +106,7 @@
 	
 	
 	  <section>
-  <table class="table table-hover table-sm align-middle">
+  <table class="table table-hover table-condensed ">
     <thead>
       <tr>
         <th>No.</th>
