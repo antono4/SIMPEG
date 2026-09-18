@@ -1,103 +1,78 @@
-<!-- README ini dihasilkan otomatis oleh .github/workflows/generate-readme.yml -->
-<!-- Jangan edit manual: perubahan akan ditimpa pada run berikutnya. -->
+<!-- README ini dihasilkan otomatis oleh workflow .github/workflows/generate-readme.yml -->
+<!-- Jangan edit manual; perubahan akan ditim pada run berikutnya. -->
 
-<h1 align="center">SIMPEG 👋</h1>
+<h1 align="center">Project 👋</h1>
+
+<p align="center">
+  <strong></strong>
+</p>
 
 <p align="center">
   <a href="https://github.com/antono4/SIMPEG"><img alt="GitHub repo" src="https://img.shields.io/badge/GitHub-antono4/SIMPEG-blue?logo=github"></a>
-  <img alt="Files" src="https://img.shields.io/badge/Files-378-informational">
-  <img alt="Last commit" src="https://img.shields.io/github/last-commit/antono4/SIMPEG">
+  <a href="https://antono4.github.io/SIMPEG/"><img alt="Live Demo" src="https://img.shields.io/badge/Live%20Demo-Online-success?logo=githubpages"></a>
+  <img alt="Files" src="https://img.shields.io/badge/Files-381-informational">
+  <img alt="Updated" src="https://img.shields.io/badge/Updated-2026-09-18 08:09:46 WIB-lightgrey">
 </p>
 
 ---
 
 ## 📖 Tentang
 
-Repository **`SIMPEG`** adalah proyek PHP yang dibangun dengan HTML, CSS, JavaScript, PHP.
-GitHub Pages belum diaktifkan untuk repository ini.
+Repository **`SIMPEG`** adalah situs web pribadi / portofolio yang diterbitkan melalui **GitHub Pages**. Situs utama berada di [`https://antono4.github.io/SIMPEG/`](https://antono4.github.io/SIMPEG/).
 
 ## 🗂️ Struktur Proyek
 
 ```
 SIMPEG/
-.github/
-  workflows/
-.htaccess
-application/
-  .htaccess
-  cache/
-  config/
-  controllers/
-  core/
-  errors/
-  helpers/
-  hooks/
-  index.html
-  language/
-  libraries/
-  logs/
-  models/
-  third_party/
-  views/
-asset/
-  colorbox/
-  css/
-  foto_pegawai/
-  gentelella/
-  img/
-  js/
-db_simpeg.sql
-index.php
-system/
-  .htaccess
-  core/
-  database/
-  fonts/
-  helpers/
-  index.html
-  language/
-  libraries/
+├── index.html          # Halaman utama (landing / portofolio)
+├── assets/             # Aset statis (css, js, img, vendor)
+├── forms/               # Form handler (PHP)
+└── application/              # 403 Forbidden  ->  https://antono4.github.io/SIMPEG/application/
+└── system/              # 403 Forbidden  ->  https://antono4.github.io/SIMPEG/system/
 ```
 
 ## 🌐 Sub-Proyek / Demo
 
-Repository ini juga memuat sub-proyek (masing-masing punya `index.html` tersendiri):
+Situs ini juga memuat beberapa sub-proyek (masing-masing punya `index.html` tersendiri):
 
-| Folder | Keterangan |
-|--------|-----------|
-| [`application`](./application) | 403 Forbidden |
-| [`system`](./system) | 403 Forbidden |
+| Folder | Demo Live | Keterangan |
+|--------|-----------|-----------|
+| [`application`](./application) | [https://antono4.github.io/SIMPEG/application/](https://antono4.github.io/SIMPEG/application/) | 403 Forbidden |
+| [`system`](./system) | [https://antono4.github.io/SIMPEG/system/](https://antono4.github.io/SIMPEG/system/) | 403 Forbidden |
 
 ## 🛠️ Teknologi
 
-Berdasarkan ekstensi berkas yang terdeteksi di repository:
+Berdasarkan isi repository, proyek ini menggunakan:
 
 - `HTML`
 - `CSS`
 - `JavaScript`
 - `PHP`
 
-> Total **378 berkas** di repository (di luar `.git`, `node_modules`, `dist`, dan `build`).
+> Total **381 file** terdeteksi di repository.
 
 ## 🚀 Menjalankan Secara Lokal
 
-Butuh PHP dan Composer:
+Karena ini situs statis (HTML/CSS/JS/PHP), cukup buka `index.html` di browser, atau jalankan server lokal:
 
 ```bash
-composer install
-php spark serve
-# atau
-php -S localhost:8000 -t public
+# Tanpa dependency
+python3 -m http.server 8000
+# lalu buka http://localhost:8000
+
+# atau dengan PHP (untuk form handler di forms/)
+php -S localhost:8000
 ```
 
 ## 📬 Kontak
 
 - GitHub: [antono4](https://github.com/antono4)
+- Situs: [https://antono4.github.io/SIMPEG/](https://antono4.github.io/SIMPEG/)
 
 ## 📄 Lisensi
 
-Proyek ini dilisensikan di bawah MIT License — lihat berkas [`LICENSE`](./LICENSE).
+Lihat berkas [`LICENSE`](./LICENSE) untuk informasi lisensi.
 
 ---
 
-<sub>README ini di-generate otomatis oleh GitHub Actions `.github/workflows/generate-readme.yml`.</sub>
+<sub>README ini di-generate otomatis pada **2026-09-18 08:09:46 WIB** oleh GitHub Actions `.github/workflows/generate-readme.yml`.</sub>
