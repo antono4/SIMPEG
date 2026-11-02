@@ -1,1 +1,30 @@
-Last updated: 2026-11-02 16:58:20 WIB
+# SIMPEG
+
+
+
+## 📋 Overview
+
+This repository contains **384 files** and is built with the following technologies:
+
+PHP
+
+## 🚀 Quick Start
+
+```bash
+php -S localhost:8000
+```
+
+## ✨ Features
+
+- 📝 Auto-generated documentation
+
+## 🛠️ Technologies
+
+PHP
+
+## 📄 License
+
+MIT License
+
+---
+*Last updated: 2026-11-02 20:26:55 WIB*
